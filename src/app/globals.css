@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-primary: #c44b56;
+  --brand-primary-soft: #f2897b;
+  --brand-accent-warm: #f3a155;
+  --brand-accent-gold: #f5d887;
+  --brand-accent-olive: #b9ba75;
+  --brand-secondary: #6c7f54;
+  --brand-mint: #b3cfc3;
+  --brand-lavender: #a392af;
+
+  --brand-neutral-bg: #f8f4ec;
+  --brand-neutral-text: #302923;
+  --brand-surface: #ffffff;
+  --brand-surface-soft: #f4efe7;
+  --brand-border: rgba(48, 41, 35, 0.14);
+  --brand-shadow: rgba(60, 41, 35, 0.08);
+
+  --background: var(--brand-neutral-bg);
+  --foreground: var(--brand-neutral-text);
+  --surface: var(--brand-surface);
+  --muted: rgba(48, 41, 35, 0.72);
+  --color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1d1916;
+    --foreground: #f8f4ec;
+    --surface: #2b2421;
+    --surface-soft: #352f2b;
+    --muted: rgba(248, 244, 236, 0.74);
+    --brand-border: rgba(255, 255, 255, 0.12);
+    --brand-shadow: rgba(10, 8, 7, 0.32);
+    --color-scheme: dark;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-primary: var(--brand-primary);
+  --color-secondary: var(--brand-secondary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: var(--color-scheme);
 }
 
 body {
+  margin: 0;
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+main,
+section {
+  display: block;
 }
