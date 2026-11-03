@@ -1,0 +1,243 @@
+.alosetu-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    background: #EEE5D8;
+    border-bottom: 1px solid #DED4C6;
+}
+
+.alosetu-navbar-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 78px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Brand */
+
+.alosetu-brand {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.alosetu-brand-image {
+    display: block;
+    width: 180px;
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Desktop navigation */
+
+.alosetu-desktop-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.alosetu-nav-link {
+    color: #302923;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.alosetu-nav-link:hover,
+.alosetu-nav-link.active {
+    color: #C44B56;
+}
+
+/* Desktop actions */
+
+.alosetu-desktop-actions {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: 20px;
+}
+
+.alosetu-login {
+    color: #302923;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.alosetu-login:hover {
+    color: #C44B56;
+}
+
+.alosetu-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 20px;
+    border-radius: 8px;
+    background: #C44B56;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.alosetu-cta:hover {
+    background: #A83D48;
+}
+
+/* Mobile menu button */
+
+.alosetu-menu-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid #DED4C6;
+    border-radius: 8px;
+    background: transparent;
+    color: #302923;
+    cursor: pointer;
+}
+
+.alosetu-menu-icon {
+    width: 23px;
+    height: 23px;
+}
+
+/* Mobile navigation */
+
+.alosetu-mobile-menu {
+    display: none;
+    border-top: 1px solid #DED4C6;
+    background: #EEE5D8;
+}
+
+.alosetu-mobile-menu.is-open {
+    display: block;
+}
+
+.alosetu-mobile-menu-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px 20px;
+}
+
+.alosetu-mobile-nav-link {
+    padding: 12px 10px;
+    border-radius: 7px;
+    color: #302923;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.alosetu-mobile-nav-link:hover,
+.alosetu-mobile-nav-link.active {
+    background: #F5D887;
+    color: #302923;
+}
+
+.alosetu-mobile-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.alosetu-mobile-login,
+.alosetu-mobile-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.alosetu-mobile-login {
+    border: 1px solid #C44B56;
+    color: #C44B56;
+}
+
+.alosetu-mobile-cta {
+    background: #C44B56;
+    color: #FFFFFF;
+}
+
+/* Focus accessibility */
+
+.alosetu-navbar a:focus-visible,
+.alosetu-menu-button:focus-visible {
+    outline: 3px solid #6C7F54;
+    outline-offset: 4px;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .alosetu-navbar-inner {
+        gap: 16px;
+        padding: 0 18px;
+    }
+
+    .alosetu-brand-image {
+        width: 156px;
+        height: 52px;
+    }
+
+    .alosetu-desktop-nav {
+        gap: 18px;
+    }
+
+    .alosetu-desktop-actions {
+        gap: 12px;
+    }
+
+    .alosetu-cta {
+        padding: 10px 14px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+    .alosetu-navbar-inner {
+        grid-template-columns: 1fr auto;
+        min-height: 70px;
+        gap: 12px;
+        padding: 0 18px;
+    }
+
+    .alosetu-brand-image {
+        width: 156px;
+        height: 52px;
+    }
+
+    .alosetu-desktop-nav,
+    .alosetu-desktop-actions {
+        display: none;
+    }
+
+    .alosetu-menu-button {
+        display: inline-flex;
+    }
+}
