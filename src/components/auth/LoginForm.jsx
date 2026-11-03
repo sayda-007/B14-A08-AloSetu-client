@@ -4,233 +4,261 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function GoogleIcon() {
+    return (
+        <svg
+            viewBox="0 0 48 48"
+            className="h-5 w-5"
+            aria-hidden="true"
+        >
+            <path
+                fill="#EA4335"
+                d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5Z"
+            />
+            <path
+                fill="#4285F4"
+                d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.92c-.58 2.96-2.25 5.48-4.73 7.18l7.26 5.64c4.23-3.91 6.67-9.67 6.67-17.29Z"
+            />
+            <path
+                fill="#FBBC05"
+                d="M10.53 28.59a14.4 14.4 0 0 1 0-9.18l-7.98-6.19a24 24 0 0 0 0 21.56l7.98-6.19Z"
+            />
+            <path
+                fill="#34A853"
+                d="M24 48c6.48 0 11.93-2.13 15.9-5.8l-7.26-5.64c-2.01 1.35-4.59 2.15-8.64 2.15-6.26 0-11.57-4.22-13.46-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48Z"
+            />
+        </svg>
+    );
+}
 
 export default function LoginForm() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const [errors, setErrors] = useState({
-    email: "",
-    password: "",
-  });
-  const [showPassword, setShowPassword] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [notice, setNotice] = useState({
-    type: "",
-    text: "",
-  });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormData((previous) => ({
-      ...previous,
-      [name]: value,
-    }));
-
-    setErrors((previous) => ({
-      ...previous,
-      [name]: "",
-    }));
-
-    setNotice({
-      type: "",
-      text: "",
-    });
-  };
-
-  const validateForm = () => {
-    const nextErrors = {};
-
-    if (!formData.email.trim()) {
-      nextErrors.email = "Email address is required.";
-    } else if (!emailRegex.test(formData.email.trim())) {
-      nextErrors.email = "Enter a valid email address.";
-    }
-
-    if (!formData.password.trim()) {
-      nextErrors.password = "Password is required.";
-    }
-
-    return nextErrors;
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    const nextErrors = validateForm();
-
-    if (Object.keys(nextErrors).length > 0) {
-      setErrors(nextErrors);
-      setNotice({
-        type: "error",
-        text: "Please fix the highlighted fields and try again.",
-      });
-      return;
-    }
-
-    setErrors({
-      email: "",
-      password: "",
-    });
-    setIsSubmitting(true);
-    setNotice({
-      type: "info",
-      text: "Login will be available once authentication is connected.",
+    const [formData, setFormData] = useState({
+        email: "",
+        password: "",
     });
 
-    window.setTimeout(() => {
-      setIsSubmitting(false);
-    }, 600);
-  };
+    const [errors, setErrors] = useState({});
+    const [showPassword, setShowPassword] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [notice, setNotice] = useState("");
 
-  const handleGoogleSignIn = () => {
-    setNotice({
-      type: "info",
-      text: "Google authentication will be connected during the authentication milestone.",
-    });
-  };
+    const handleChange = (event) => {
+        const { name, value } = event.target;
 
-  return (
-    <div className="w-full max-w-md">
-      <div className="rounded-[30px] border border-white/10 bg-[#2b2421] p-5 shadow-[0_18px_42px_rgba(60,41,35,0.06)] sm:p-7 lg:p-8">
-        <div className="mb-7 flex items-center justify-center">
-          <Link href="/" className="inline-flex items-center justify-center" aria-label="AloSetu home">
-            <Image
-              src="/alosetu-logo-horizontal.svg"
-              alt="AloSetu"
-              width={220}
-              height={64}
-              priority
-              className="h-auto w-[180px] sm:w-[200px]"
-            />
-          </Link>
-        </div>
+        setFormData((previousData) => ({
+            ...previousData,
+            [name]: value,
+        }));
 
-        <div className="mb-7 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#f5d887]">
-            Welcome back
-          </p>
-          <h1 className="mt-3 text-3xl font-black tracking-[-0.05em] text-[#f8f4ec] sm:text-4xl">
-            Sign in to AloSetu
-          </h1>
-          <p className="mt-3 text-sm leading-6 text-[#e8ded1] sm:text-base">
-            Log in to join community initiatives, stay involved, and help shape stronger neighborhoods.
-          </p>
-        </div>
+        setErrors((previousErrors) => ({
+            ...previousErrors,
+            [name]: "",
+        }));
 
-        <form onSubmit={handleSubmit} noValidate className="space-y-5">
-          <div className="space-y-2">
-            <label htmlFor="email" className="block text-sm font-medium text-[#f8f4ec]">
-              Email Address
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your email"
-              autoComplete="email"
-              aria-invalid={Boolean(errors.email)}
-              aria-describedby={errors.email ? "email-error" : undefined}
-              className={`h-12 w-full rounded-full border px-4 text-sm text-[#f8f4ec] placeholder:text-[#e8ded1]/70 outline-none transition focus:ring-2 ${
-                errors.email
-                  ? "border-[#f2897b] bg-[#352f2b] focus:border-[#f2897b] focus:ring-[#f2897b]/30"
-                  : "border-white/10 bg-[#352f2b] focus:border-[#f5d887] focus:ring-[#f5d887]/30"
-              }`}
-            />
-            {errors.email ? (
-              <p id="email-error" className="text-sm text-[#f2897b]">
-                {errors.email}
-              </p>
-            ) : null}
-          </div>
+        setNotice("");
+    };
 
-          <div className="space-y-2">
-            <label htmlFor="password" className="block text-sm font-medium text-[#f8f4ec]">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                id="password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Enter your password"
-                autoComplete="current-password"
-                aria-invalid={Boolean(errors.password)}
-                aria-describedby={errors.password ? "password-error" : undefined}
-                className={`h-12 w-full rounded-full border px-4 pr-12 text-sm text-[#f8f4ec] placeholder:text-[#e8ded1]/70 outline-none transition focus:ring-2 ${
-                  errors.password
-                    ? "border-[#f2897b] bg-[#352f2b] focus:border-[#f2897b] focus:ring-[#f2897b]/30"
-                    : "border-white/10 bg-[#352f2b] focus:border-[#f5d887] focus:ring-[#f5d887]/30"
-                }`}
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword((previous) => !previous)}
-                className="absolute inset-y-0 right-3 flex items-center justify-center rounded-full px-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#f5d887] transition hover:text-[#f8f4ec] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5d887]/60"
-                aria-label={showPassword ? "Hide password" : "Show password"}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>
+    const validateForm = () => {
+        const newErrors = {};
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!formData.email.trim()) {
+            newErrors.email = "Email address is required.";
+        } else if (!emailPattern.test(formData.email)) {
+            newErrors.email = "Please enter a valid email address.";
+        }
+
+        if (!formData.password) {
+            newErrors.password = "Password is required.";
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        setNotice("");
+
+        if (!validateForm()) {
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            // Authentication will be connected in the next development step.
+            setNotice("Login authentication is not connected yet.");
+        } catch (error) {
+            setNotice("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    const handleGoogleSignIn = () => {
+        setNotice("Google authentication is not connected yet.");
+    };
+
+    return (
+        <div className="flex w-full justify-center px-2 py-12 sm:py-16">
+            <div className="w-full max-w-[440px] rounded-[26px] border border-[#F5D887]/30 bg-[#E8D9C8] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] ring-1 ring-black/5 sm:p-8">
+
+                {/* Logo */}
+                <div className="mb-7 flex justify-center">
+                    <Link href="/" aria-label="Go to AloSetu homepage">
+                        <Image
+                            src="/alosetu-logo-horizontal.svg"
+                            alt="AloSetu"
+                            width={190}
+                            height={55}
+                            priority
+                            className="h-auto w-[170px] object-contain sm:w-[190px]"
+                        />
+                    </Link>
+                </div>
+
+                {/* Heading */}
+                <div className="mb-7 text-center">
+                    <h1 className="text-2xl font-bold tracking-tight text-[#302923] sm:text-3xl">
+                        Welcome Back!
+                    </h1>
+
+                    <p className="mt-2 text-sm leading-6 text-[#62544A]">
+                        Sign in to continue making a difference with AloSetu.
+                    </p>
+                </div>
+
+                {/* Login Form */}
+                <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Email */}
+                    <div>
+                        <label
+                            htmlFor="email"
+                            className="mb-2 block text-sm font-semibold text-[#302923]"
+                        >
+                            Email Address
+                        </label>
+
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="Enter your email"
+                            autoComplete="email"
+                            className="w-full rounded-xl border border-[#6C7F54]/30 bg-[#302923] px-4 py-3 text-sm text-[#F8F4EC] outline-none transition placeholder:text-[#B3A69A] focus:border-[#C44B56] focus:ring-2 focus:ring-[#C44B56]/20"
+                        />
+
+                        {errors.email && (
+                            <p className="mt-1.5 text-xs text-[#A52F3B]">
+                                {errors.email}
+                            </p>
+                        )}
+                    </div>
+
+                    {/* Password */}
+                    <div>
+                        <div className="mb-2 flex items-center justify-between">
+                            <label
+                                htmlFor="password"
+                                className="block text-sm font-semibold text-[#302923]"
+                            >
+                                Password
+                            </label>
+
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword((previous) => !previous)}
+                                className="text-[10px] font-semibold text-[#6C7F54] transition hover:text-[#C44B56]"
+                            >
+                                {showPassword ? "Hide" : "Show"}
+                            </button>
+                        </div>
+
+                        <input
+                            id="password"
+                            name="password"
+                            type={showPassword ? "text" : "password"}
+                            value={formData.password}
+                            onChange={handleChange}
+                            placeholder="Enter your password"
+                            autoComplete="current-password"
+                            className="w-full rounded-xl border border-[#6C7F54]/30 bg-[#302923] px-4 py-3 text-sm text-[#F8F4EC] outline-none transition placeholder:text-[#B3A69A] focus:border-[#C44B56] focus:ring-2 focus:ring-[#C44B56]/20"
+                        />
+
+                        {errors.password && (
+                            <p className="mt-1.5 text-xs text-[#A52F3B]">
+                                {errors.password}
+                            </p>
+                        )}
+                    </div>
+
+
+                    {/* Forgot Password */}
+                    <div className="flex justify-end">
+                        <Link
+                            href="/forgot-password"
+                            className="login-forgot-password"
+                        >
+                            Forgot password?
+                        </Link>
+                    </div>
+
+
+                    {/* Submit Button */}
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full rounded-xl bg-[#C44B56] px-5 py-3 text-sm font-semibold text-white shadow-md shadow-[#C44B56]/20 transition hover:bg-[#AD3F4A] disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                        {isSubmitting ? "Signing In..." : "Sign In"}
+                    </button>
+
+                    {notice && (
+                        <p
+                            role="status"
+                            className="rounded-lg bg-[#F5D887]/40 px-3 py-2 text-center text-xs text-[#62544A]"
+                        >
+                            {notice}
+                        </p>
+                    )}
+                </form>
+
+                {/* Divider */}
+                <div className="my-6 flex items-center gap-3">
+                    <div className="h-px flex-1 bg-[#B9A998]" />
+                    <span className="text-xs font-medium text-[#76685D]">
+                        OR CONTINUE WITH
+                    </span>
+                    <div className="h-px flex-1 bg-[#B9A998]" />
+                </div>
+
+                {/* Google Sign In */}
+                <button
+                    type="button"
+                    onClick={handleGoogleSignIn}
+                    className="flex w-full items-center justify-center gap-3 rounded-xl border border-[#D8D0C8] bg-white px-5 py-3 text-sm font-semibold text-[#302923] transition hover:bg-[#F8F4EC]"
+                >
+                    <GoogleIcon />
+                    Continue with Google
+                </button>
+
+                {/* Registration Link */}
+                <p className="mt-7 text-center text-sm text-[#62544A]">
+                    Don&apos;t have an account?{" "}
+                    <Link
+                        href="/register"
+                        className="font-bold text-[#C44B56] transition hover:text-[#AD3F4A]"
+                    >
+                        Create an account
+                    </Link>
+                </p>
             </div>
-            {errors.password ? (
-              <p id="password-error" className="text-sm text-[#f2897b]">
-                {errors.password}
-              </p>
-            ) : null}
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="inline-flex h-12 w-full items-center justify-center rounded-full bg-[#c44b56] px-5 text-sm font-semibold text-white transition hover:bg-[#ae3b4a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6c7f54] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1d1916] disabled:cursor-not-allowed disabled:opacity-70"
-          >
-            {isSubmitting ? "Signing in..." : "Login"}
-          </button>
-
-          {notice.text ? (
-            <p
-              role="status"
-              className={`text-sm leading-6 ${
-                notice.type === "error" ? "text-[#f2897b]" : "text-[#f5d887]"
-              }`}
-            >
-              {notice.text}
-            </p>
-          ) : null}
-        </form>
-
-        <div className="relative my-6 flex items-center justify-center">
-          <div className="absolute inset-x-0 top-1/2 h-px bg-white/10" aria-hidden="true" />
-          <span className="relative bg-[#2b2421] px-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#e8ded1]">
-            Or
-          </span>
         </div>
-
-        <button
-          type="button"
-          onClick={handleGoogleSignIn}
-          className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-full border border-white/10 bg-[#352f2b] px-5 text-sm font-semibold text-[#f8f4ec] transition hover:border-[#f5d887]/40 hover:bg-[#3a322f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5d887]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1d1916]"
-        >
-          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-xs font-black text-[#1d1916]">
-            G
-          </span>
-          Continue with Google
-        </button>
-
-        <p className="mt-6 text-center text-sm text-[#e8ded1]">
-          Don&apos;t have an account?{" "}
-          <Link href="/register" className="font-semibold text-[#f5d887] transition hover:text-[#f8f4ec]">
-            Create one
-          </Link>
-        </p>
-      </div>
-    </div>
-  );
+    );
 }

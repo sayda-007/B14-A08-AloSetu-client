@@ -155,3 +155,196 @@ section {
 .homepage-shell .hero-stat-value {
   color: #f8f4ec;
 }
+
+
+
+/* ========================================
+   LOGIN PAGE
+======================================== */
+
+.login-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 64px 20px;
+  box-sizing: border-box;
+}
+
+.login-page__container {
+  width: 100%;
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+/* Login card */
+
+.login-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 36px;
+  border-radius: 20px;
+  background-color: #39312C;
+  border: 1px solid rgba(245, 216, 135, 0.16);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+  color: #F8F4EC;
+}
+
+/* AloSetu branding */
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.login-brand__name {
+  color: #F8F4EC;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Form spacing */
+
+.login-card .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-card label {
+  color: #F8F4EC;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Input fields */
+
+.login-card .login-input {
+  width: 100%;
+  min-height: 48px;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #62564D;
+  border-radius: 9px;
+  outline: none;
+  background-color: #29231F;
+  color: #F8F4EC;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.login-card .login-input::placeholder {
+  color: #A99D93;
+}
+
+.login-card .login-input:focus {
+  border-color: #F3A155;
+}
+
+/* Password Show/Hide */
+
+.password-toggle {
+  border: none;
+  background: transparent;
+  color: #F3A155;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+
+.password-toggle:hover {
+  color: #F5D887;
+}
+
+/* Main login button */
+
+.login-submit-button {
+  width: 100%;
+  min-height: 48px;
+  border: none;
+  border-radius: 9px;
+  background-color: #C44B56;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-submit-button:hover {
+  background-color: #AD3E49;
+}
+
+.login-submit-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Google login button */
+
+.google-login-button {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border: 1px solid #D8D8D8;
+  border-radius: 9px;
+  background-color: #FFFFFF;
+  color: #302923;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.google-login-button:hover {
+  background-color: #F2F2F2;
+}
+
+.google-login-button__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Responsive layout */
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 36px 16px;
+  }
+
+  .login-card {
+    padding: 26px 20px;
+    border-radius: 16px;
+  }
+
+  .login-brand__name {
+    font-size: 23px;
+  }
+}
+
+
+/* Forgot Password link */
+a.login-forgot-password,
+a.login-forgot-password:link,
+a.login-forgot-password:visited {
+  color: #8B3D32 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.25rem !important;
+  text-decoration: none !important;
+}
+
+a.login-forgot-password:hover,
+a.login-forgot-password:focus-visible {
+  color: #C44B56 !important;
+}
