@@ -42,9 +42,12 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
   --color-muted: var(--muted);
   --color-primary: var(--brand-primary);
+  --color-primary-soft: var(--brand-primary-soft);
   --color-secondary: var(--brand-secondary);
+  --color-brand-border: var(--brand-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -101,4 +104,54 @@ p {
 main,
 section {
   display: block;
+}
+
+.homepage-shell {
+  background: #1d1916;
+  color: #f8f4ec;
+}
+
+.homepage-shell h1,
+.homepage-shell h2,
+.homepage-shell h3,
+.homepage-shell h4,
+.homepage-shell h5,
+.homepage-shell h6,
+.homepage-shell p,
+.homepage-shell li,
+.homepage-shell figcaption,
+.homepage-shell label,
+.homepage-shell span,
+.homepage-shell a,
+.homepage-shell button,
+.homepage-shell input {
+  color: inherit;
+}
+
+.homepage-shell .home-copy-primary {
+  color: #f8f4ec;
+}
+
+.homepage-shell .home-copy-secondary {
+  color: #e8ded1;
+}
+
+.homepage-shell .home-copy-accent {
+  color: #f5d887;
+}
+
+.homepage-shell .hero-eyebrow {
+  color: #f5d887;
+}
+
+.homepage-shell .hero-copy {
+  color: #f8f4ec;
+}
+
+.homepage-shell .hero-stat-label {
+  color: #e8ded1;
+}
+
+.homepage-shell .hero-stat-value {
+  color: #f8f4ec;
 }
