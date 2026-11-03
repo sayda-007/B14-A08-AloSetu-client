@@ -1,5 +1,5 @@
-
 import EventBrowser from "@/components/events/EventBrowser";
+import { devPreviewEvent } from "@/lib/dev-preview-events";
 
 export const metadata = {
     title: "Upcoming Events | AloSetu",
@@ -8,5 +8,7 @@ export const metadata = {
 };
 
 export default function UpcomingEventsPage() {
-    return <EventBrowser events={[]} />;
+    const events = process.env.NODE_ENV === "development" ? [devPreviewEvent] : [];
+
+    return <EventBrowser events={events} />;
 }

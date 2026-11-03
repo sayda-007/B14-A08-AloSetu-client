@@ -51,6 +51,12 @@ export default function EventCard({ event }) {
       </div>
 
       <div className="flex h-full flex-col gap-4 p-5">
+        {event?.isPreview ? (
+          <div className="rounded-full border border-[#f5d887]/40 bg-[#1d1916]/70 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#f5d887]">
+            DEVELOPMENT PREVIEW — NOT A REAL EVENT
+          </div>
+        ) : null}
+
         <div className="space-y-3">
           <h3 className="text-xl font-bold tracking-[-0.04em] text-[#f8f4ec]">
             {event?.title || "Community opportunity"}
