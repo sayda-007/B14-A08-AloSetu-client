@@ -1,11 +1,12 @@
-import EventBrowser from "../../components/events/EventBrowser";
+
+import EventBrowser from "@/components/events/EventBrowser";
 
 export const metadata = {
-  title: "Upcoming Events | AloSetu",
-  description:
-    "Explore upcoming community initiatives, volunteer opportunities, and local service events organized by AloSetu.",
+    title: "Upcoming Events | AloSetu",
+    description:
+        "Discover upcoming community initiatives and find meaningful opportunities to participate in local community-service events.",
 };
 
 export default function UpcomingEventsPage() {
-  return <EventBrowser events={[]} />;
+    return <EventBrowser events={[]} />;
 }
