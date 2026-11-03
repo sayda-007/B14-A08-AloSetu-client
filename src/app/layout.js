@@ -12,9 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "AloSetu | A Bridge to Learning",
+  title: "AloSetu | Connecting Communities for Good",
   description:
-    "A community-driven platform connecting people through free education and social development initiatives.",
+    "Discover, create, and join community-service events that bring people together to make a positive impact in their communities.",
 };
 
 export default function RootLayout({ children }) {

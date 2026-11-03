@@ -20,6 +20,7 @@
   --background: var(--brand-neutral-bg);
   --foreground: var(--brand-neutral-text);
   --surface: var(--brand-surface);
+  --surface-soft: var(--brand-surface-soft);
   --muted: rgba(48, 41, 35, 0.72);
   --color-scheme: light;
 }
