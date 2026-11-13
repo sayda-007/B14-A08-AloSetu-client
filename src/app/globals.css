@@ -183,7 +183,7 @@ section {
   box-sizing: border-box;
   padding: 36px;
   border-radius: 20px;
-  background-color: #39312C;
+  background-color: #3b312c;
   border: 1px solid rgba(245, 216, 135, 0.16);
   box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
   color: #F8F4EC;
@@ -227,21 +227,71 @@ section {
   min-height: 48px;
   box-sizing: border-box;
   padding: 12px 14px;
-  border: 1px solid #62564D;
+  border: 1px solid rgba(245, 216, 135, 0.35);
   border-radius: 9px;
   outline: none;
-  background-color: #29231F;
+  background-color: #241E1B;
   color: #F8F4EC;
   font-size: 14px;
   transition: border-color 0.2s ease;
 }
 
 .login-card .login-input::placeholder {
-  color: #A99D93;
+  color: #B9ACA2;
 }
 
 .login-card .login-input:focus {
   border-color: #F3A155;
+}
+
+/* Register card adjustments */
+.register-card {
+  background-color: #39312C;
+  color: #F8F4EC;
+}
+
+.register-card .register-heading {
+  color: #F8F4EC !important;
+}
+
+.register-card .register-subtitle {
+  color: #D1C2B8 !important;
+}
+
+.register-card .register-label {
+  color: #F8F4EC;
+}
+
+.register-card .register-input {
+  background-color: #241E1B;
+  color: #F8F4EC;
+  border-color: rgba(245, 216, 135, 0.35);
+}
+
+.register-card .register-input::placeholder {
+  color: #B9ACA2;
+}
+
+.register-card .register-input:focus {
+  border-color: #F3A155;
+  box-shadow: 0 0 0 3px rgba(243, 161, 85, 0.12);
+}
+
+.register-card .register-helper {
+  color: #D1C2B8;
+}
+
+.register-card .register-account {
+  color: #D1C2B8;
+}
+
+.register-card .register-account-link {
+  color: #C44B56;
+}
+
+.register-card .register-account-link:hover,
+.register-card .register-account-link:focus-visible {
+  color: #E59A7A;
 }
 
 /* Password Show/Hide */
@@ -337,7 +387,7 @@ section {
 a.login-forgot-password,
 a.login-forgot-password:link,
 a.login-forgot-password:visited {
-  color: #8B3D32 !important;
+  color: #D1C2B8 !important;
   font-size: 12px !important;
   font-weight: 600 !important;
   line-height: 1.25rem !important;

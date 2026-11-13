@@ -105,13 +105,13 @@ export default function LoginForm() {
 
     return (
         <div className="flex w-full justify-center px-2 py-12 sm:py-16">
-            <div className="w-full max-w-[440px] rounded-[26px] border border-[#F5D887]/30 bg-[#E8D9C8] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] ring-1 ring-black/5 sm:p-8">
+            <div className="w-full max-w-[440px] rounded-[26px] border border-[#F5D887]/30 bg-[#39312C] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)] ring-1 ring-black/5 sm:p-8">
 
                 {/* Logo */}
                 <div className="mb-7 flex justify-center">
                     <Link href="/" aria-label="Go to AloSetu homepage">
                         <Image
-                            src="/alosetu-logo-horizontal.svg"
+                            src="/alosetu-logo-horizontal-light.svg"
                             alt="AloSetu"
                             width={190}
                             height={55}
@@ -123,11 +123,11 @@ export default function LoginForm() {
 
                 {/* Heading */}
                 <div className="mb-7 text-center">
-                    <h1 className="text-2xl font-bold tracking-tight text-[#302923] sm:text-3xl">
+                    <h1 className="text-2xl font-bold tracking-tight text-[#F8F4EC] sm:text-3xl">
                         Welcome Back!
                     </h1>
 
-                    <p className="mt-2 text-sm leading-6 text-[#62544A]">
+                    <p className="mt-2 text-sm leading-6 text-[#D1C2B8]">
                         Sign in to continue making a difference with AloSetu.
                     </p>
                 </div>
@@ -138,7 +138,7 @@ export default function LoginForm() {
                     <div>
                         <label
                             htmlFor="email"
-                            className="mb-2 block text-sm font-semibold text-[#302923]"
+                            className="mb-2 block text-sm font-semibold text-[#F8F4EC]"
                         >
                             Email Address
                         </label>
@@ -151,7 +151,7 @@ export default function LoginForm() {
                             onChange={handleChange}
                             placeholder="Enter your email"
                             autoComplete="email"
-                            className="w-full rounded-xl border border-[#6C7F54]/30 bg-[#302923] px-4 py-3 text-sm text-[#F8F4EC] outline-none transition placeholder:text-[#B3A69A] focus:border-[#C44B56] focus:ring-2 focus:ring-[#C44B56]/20"
+                            className="w-full rounded-xl border border-[#F5D887]/35 bg-[#241E1B] px-4 py-3 text-sm text-[#F8F4EC] outline-none transition placeholder:text-[#B9ACA2] focus:border-[#F3A155] focus:ring-2 focus:ring-[#F3A155]/20"
                         />
 
                         {errors.email && (
@@ -166,7 +166,7 @@ export default function LoginForm() {
                         <div className="mb-2 flex items-center justify-between">
                             <label
                                 htmlFor="password"
-                                className="block text-sm font-semibold text-[#302923]"
+                                className="block text-sm font-semibold text-[#F8F4EC]"
                             >
                                 Password
                             </label>
@@ -188,7 +188,7 @@ export default function LoginForm() {
                             onChange={handleChange}
                             placeholder="Enter your password"
                             autoComplete="current-password"
-                            className="w-full rounded-xl border border-[#6C7F54]/30 bg-[#302923] px-4 py-3 text-sm text-[#F8F4EC] outline-none transition placeholder:text-[#B3A69A] focus:border-[#C44B56] focus:ring-2 focus:ring-[#C44B56]/20"
+                            className="w-full rounded-xl border border-[#F5D887]/35 bg-[#241E1B] px-4 py-3 text-sm text-[#F8F4EC] outline-none transition placeholder:text-[#B9ACA2] focus:border-[#F3A155] focus:ring-2 focus:ring-[#F3A155]/20"
                         />
 
                         {errors.password && (
@@ -203,7 +203,7 @@ export default function LoginForm() {
                     <div className="flex justify-end">
                         <Link
                             href="/forgot-password"
-                            className="login-forgot-password"
+                            className="login-forgot-password text-[12px] font-semibold text-[#D1C2B8] transition hover:text-[#C44B56]"
                         >
                             Forgot password?
                         </Link>
@@ -222,7 +222,7 @@ export default function LoginForm() {
                     {notice && (
                         <p
                             role="status"
-                            className="rounded-lg bg-[#F5D887]/40 px-3 py-2 text-center text-xs text-[#62544A]"
+                            className="rounded-lg bg-[#F5D887]/40 px-3 py-2 text-center text-xs text-[#D1C2B8]"
                         >
                             {notice}
                         </p>
@@ -232,7 +232,7 @@ export default function LoginForm() {
                 {/* Divider */}
                 <div className="my-6 flex items-center gap-3">
                     <div className="h-px flex-1 bg-[#B9A998]" />
-                    <span className="text-xs font-medium text-[#76685D]">
+                    <span className="text-xs font-medium text-[#D1C2B8]">
                         OR CONTINUE WITH
                     </span>
                     <div className="h-px flex-1 bg-[#B9A998]" />
@@ -249,7 +249,7 @@ export default function LoginForm() {
                 </button>
 
                 {/* Registration Link */}
-                <p className="mt-7 text-center text-sm text-[#62544A]">
+                <p className="mt-7 text-center text-sm text-[#D1C2B8]">
                     Don&apos;t have an account?{" "}
                     <Link
                         href="/register"
