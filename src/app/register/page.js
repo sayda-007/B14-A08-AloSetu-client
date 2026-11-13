@@ -32,7 +32,6 @@ export default function RegisterPage() {
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
-        profilePhoto: "",
         password: "",
     });
 
@@ -68,16 +67,6 @@ export default function RegisterPage() {
             nextErrors.email = "Email address is required.";
         } else if (!validateEmail(formData.email)) {
             nextErrors.email = "Please enter a valid email address.";
-        }
-
-        if (!formData.profilePhoto.trim()) {
-            nextErrors.profilePhoto = "Profile photo URL is required.";
-        } else {
-            try {
-                new URL(formData.profilePhoto);
-            } catch {
-                nextErrors.profilePhoto = "Please enter a valid image URL.";
-            }
         }
 
         const passwordError = validatePassword(formData.password);
@@ -168,25 +157,6 @@ export default function RegisterPage() {
                             />
                             {errors.email && (
                                 <p className="mt-1.5 text-xs text-[#A52F3B]">{errors.email}</p>
-                            )}
-                        </div>
-
-                        <div>
-                            <label htmlFor="profilePhoto" className="register-label mb-2 block text-sm font-semibold">
-                                Profile Photo URL
-                            </label>
-                            <input
-                                id="profilePhoto"
-                                type="url"
-                                name="profilePhoto"
-                                value={formData.profilePhoto}
-                                onChange={handleChange}
-                                placeholder="https://example.com/avatar.jpg"
-                                autoComplete="url"
-                                className="login-input register-input"
-                            />
-                            {errors.profilePhoto && (
-                                <p className="mt-1.5 text-xs text-[#A52F3B]">{errors.profilePhoto}</p>
                             )}
                         </div>
 
